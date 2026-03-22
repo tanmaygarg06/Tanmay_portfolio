@@ -1,4 +1,6 @@
-%PDF-1.4
+import os
+
+pdf_content = b'''%PDF-1.4
 1 0 obj
 << /Type /Catalog /Pages 2 0 R >>
 endobj
@@ -40,3 +42,9 @@ trailer
 startxref
 516
 %%EOF
+'''
+
+with open(r"c:\Users\Asus\OneDrive\Desktop\Tanmay Porfolio\Tanmay_Garg_Resume.pdf", "wb") as f:
+    f.write(pdf_content)
+
+print("PDF created successfully!")
