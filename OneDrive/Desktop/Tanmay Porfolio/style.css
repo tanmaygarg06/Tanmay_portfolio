@@ -387,3 +387,35 @@ html:not(.light) .btn-primary { animation: pulseBtnDark 2s infinite; }
     70% { box-shadow: 0 0 0 15px rgba(0, 229, 255, 0); }
     100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }
 }
+
+/* --- ADVANCED ANIMATIONS EXTENSION --- */
+.skill-card, .cert-card, .profile-card { position: relative; overflow: hidden; }
+.glare {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, transparent 50%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 10;
+    mix-blend-mode: overlay;
+}
+
+.scramble-char {
+    color: var(--accent-cyan);
+    font-weight: 700;
+}
+
+.konami-mode {
+    animation: rainbowBg 10s infinite linear;
+}
+.konami-mode * {
+    transition: all 0.5s ease;
+}
+@keyframes rainbowBg {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+}

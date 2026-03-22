@@ -305,9 +305,13 @@ if (canvas) {
     animateStars();
 }
 
-// Premium 3D Tilt Effect for cards
+// Premium 3D Tilt + Glare Effect
 const tiltElements = document.querySelectorAll('.skill-card, .cert-card, .profile-card');
 tiltElements.forEach(el => {
+    const glare = document.createElement('div');
+    glare.className = 'glare';
+    el.appendChild(glare);
+
     el.addEventListener('mousemove', e => {
         // Disable tilt on mobile
         if(window.innerWidth <= 768) return;
@@ -320,9 +324,138 @@ tiltElements.forEach(el => {
         const rotateY = ((x - centerX) / centerX) * 8;
         
         el.style.transform = `perspective(1000px) scale(1.03) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        glare.style.transform = `translate(${x - centerX}px, ${y - centerY}px)`;
+        glare.style.opacity = '1';
     });
     el.addEventListener('mouseleave', () => {
         el.style.transform = '';
+        glare.style.opacity = '0';
     });
+});
+
+// Magnetic Buttons
+const magneticEls = document.querySelectorAll('.btn-primary, .btn-outline, .social-icon');
+magneticEls.forEach(el => {
+    el.addEventListener('mouseenter', () => el.style.transition = 'transform 0.1s ease-out');
+    el.addEventListener('mousemove', function(e) {
+        if(window.innerWidth <= 768) return;
+        const rect = el.getBoundingClientRect();
+        const x = (e.clientX - rect.left) - rect.width / 2;
+        const y = (e.clientY - rect.top) - rect.height / 2;
+        el.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+    });
+    el.addEventListener('mouseleave', function() {
+        el.style.transition = '';
+        el.style.transform = '';
+    });
+});
+
+// Mouse Parallax for Hero Elements
+const parallaxEls = document.querySelectorAll('.hero-right .avatar-wrap');
+const blobs = document.querySelectorAll('.blob-1, .blob-2, .blob-3');
+document.addEventListener('mousemove', e => {
+    if(window.innerWidth <= 768) return;
+    const x = (window.innerWidth - e.pageX * 2) / 90;
+    const y = (window.innerHeight - e.pageY * 2) / 90;
+    parallaxEls.forEach(el => el.style.transform = `translateX(${x}px) translateY(${y}px)`);
+    blobs.forEach((el, index) => {
+        const speed = (index + 1) * 2;
+        el.style.transform = `translateX(${x*speed}px) translateY(${y*speed}px)`;
+    });
+});
+
+// Text Scramble Animation
+class TextScramble {
+  constructor(el) {
+    this.el = el;
+    this.chars = '!<>-_\\\\/[]{}—=+*^?#________';
+    this.update = this.update.bind(this);
+  }
+  setText(newText) {
+    const oldText = this.el.innerText;
+    const length = Math.max(oldText.length, newText.length);
+    const promise = new Promise((resolve) => this.resolve = resolve);
+    this.queue = [];
+    for (let i = 0; i < length; i++) {
+        const from = oldText[i] || '';
+        const to = newText[i] || '';
+        const start = Math.floor(Math.random() * 40);
+        const end = start + Math.floor(Math.random() * 40);
+        this.queue.push({ from, to, start, end });
+    }
+    cancelAnimationFrame(this.frameRequest);
+    this.frame = 0;
+    this.update();
+    return promise;
+  }
+  update() {
+    let output = '';
+    let complete = 0;
+    for (let i = 0, n = this.queue.length; i < n; i++) {
+        let { from, to, start, end, char } = this.queue[i];
+        if (this.frame >= end) {
+            complete++;
+            output += to;
+        } else if (this.frame >= start) {
+            if (!char || Math.random() < 0.28) {
+                char = this.randomChar();
+                this.queue[i].char = char;
+            }
+            output += `<span class="scramble-char">${char}</span>`;
+        } else {
+            output += from;
+        }
+    }
+    this.el.innerHTML = output;
+    if (complete === this.queue.length) {
+        this.resolve();
+    } else {
+        this.frameRequest = requestAnimationFrame(this.update);
+        this.frame++;
+    }
+  }
+  randomChar() {
+    return this.chars[Math.floor(Math.random() * this.chars.length)];
+  }
+}
+
+const eyebrows = document.querySelectorAll('.section-eyebrow');
+eyebrows.forEach(el => {
+    const fx = new TextScramble(el);
+    const originalText = el.innerText;
+    el.innerText = "";
+    
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting && !el.dataset.scrambled) {
+                el.dataset.scrambled = "true";
+                fx.setText(originalText);
+            }
+        });
+    }, { threshold: 0.1 });
+    obs.observe(el);
+});
+
+// Konami Code Easter Egg
+const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+let konamiIndex = 0;
+document.addEventListener('keydown', e => {
+    if(e.key.toLowerCase() === konamiCode[konamiIndex].toLowerCase() || e.key === konamiCode[konamiIndex]) {
+        konamiIndex++;
+        if(konamiIndex === konamiCode.length) {
+            document.body.classList.toggle('konami-mode');
+            
+            // Show toast notification
+            const t = document.getElementById('toast');
+            if(t) {
+                t.textContent = '🚀 EASTER EGG UNLOCKED: SICK MODE 🚀';
+                t.classList.add('show');
+                setTimeout(() => t.classList.remove('show'), 5000);
+            }
+            konamiIndex = 0;
+        }
+    } else {
+        konamiIndex = 0;
+    }
 });
 
