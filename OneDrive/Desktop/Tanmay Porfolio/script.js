@@ -59,6 +59,16 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
             
+            // Skill Bars Animation
+            if (entry.target.classList.contains('skill-card')) {
+                const bars = entry.target.querySelectorAll('.sb-fill');
+                bars.forEach(bar => {
+                    const width = bar.style.width;
+                    bar.style.width = '0%';
+                    setTimeout(() => bar.style.width = width, 100);
+                });
+            }
+
             // Stats Animation
             if (entry.target.classList.contains('stat-item') || entry.target.querySelector('.stat-num')) {
                 const numEl = entry.target.classList.contains('stat-num') ? entry.target : entry.target.querySelector('.stat-num');
@@ -108,7 +118,7 @@ if (closeMenuBtn && mobileMenu) {
 
 // Typing Effect
 const typedTextSpan = document.getElementById("typed-text");
-const textArray = ["Developer.", "Cloud Engineer.", "Problem Solver."];
+const textArray = ["Tanmay Garg.", "a Developer.", "a Cloud Engineer.", "a Problem Solver."];
 const typingDelay = 100;
 const erasingDelay = 50;
 const newTextDelay = 2000; 
