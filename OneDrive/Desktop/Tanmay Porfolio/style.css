@@ -10,10 +10,10 @@
 --ease:cubic-bezier(0.4,0,0.2,1);--radius-sm:6px;--radius-md:12px;--radius-lg:20px;
 }
 html.light{
---bg-primary:#F0F4FA;--bg-secondary:#FFFFFF;--bg-card:rgba(255,255,255,0.7);--bg-card-hover:#E6F0FF;
---accent-cyan:#0066FF;--accent-amber:#D97706;--accent-purple:#6D28D9;
---text-primary:#0F172A;--text-secondary:#334155;--border:rgba(0,102,255,0.15);--border-hover:rgba(0,102,255,0.5);
---glow-cyan:0 0 20px rgba(0,102,255,0.3);--glow-amber:0 0 20px rgba(217,119,6,0.3);
+--bg-primary:#F8FAFC;--bg-secondary:#FFFFFF;--bg-card:rgba(255,255,255,0.85);--bg-card-hover:#F1F5F9;
+--accent-cyan:#3B82F6;--accent-amber:#F59E0B;--accent-purple:#8B5CF6;
+--text-primary:#0F172A;--text-secondary:#475569;--border:rgba(148,163,184,0.3);--border-hover:rgba(59,130,246,0.5);
+--glow-cyan:0 10px 25px -5px rgba(59,130,246,0.3);--glow-amber:0 10px 25px -5px rgba(245,158,11,0.3);
 }
 html{scroll-behavior:smooth;}
 body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--font-body);overflow-x:hidden;}
@@ -333,16 +333,9 @@ html.light .starfield { opacity: 0; }
 
 
 /* SUPERCHARGED LIGHT THEME & HOVER EFFECTS */
-html.light {
-    --bg-primary: #F0F4FA;
-    --bg-card: rgba(255, 255, 255, 0.65);
-    --border: rgba(0, 50, 255, 0.08);
-    --border-hover: rgba(0, 150, 255, 0.4);
-}
-
 html.light body {
-    background: radial-gradient(circle at top left, rgba(0, 229, 255, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at bottom right, rgba(124, 58, 237, 0.15) 0%, transparent 40%),
+    background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at bottom right, rgba(139, 92, 246, 0.08) 0%, transparent 40%),
                 var(--bg-primary);
     background-attachment: fixed;
 }
@@ -350,7 +343,7 @@ html.light body {
 html.light .skill-card, html.light .edu-card, html.light .profile-card, html.light .flip-wrapper .card-front, html.light .contact-form-wrap, html.light .cert-card, html.light .stat-item {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.05);
 }
 
 /* ENHANCED BOUNCY HOVER EFFECTS */
@@ -369,13 +362,28 @@ html:not(.light) .skill-card:hover, html:not(.light) .edu-card:hover, html:not(.
     background: rgba(18, 18, 31, 0.95);
 }
 
-/* Light theme extensive shadows on hover */
+/* Light theme sleek hover */
 html.light .skill-card:hover, html.light .edu-card:hover, html.light .profile-card:hover, html.light .cert-card:hover {
-    box-shadow: 0 15px 40px rgba(0, 100, 255, 0.15), 0 0 20px rgba(124, 58, 237, 0.1);
-    border-color: rgba(0, 150, 255, 0.5);
-    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.25), 0 0 20px rgba(139, 92, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.6);
+    background: rgba(255, 255, 255, 0.98);
 }
 
 .flip-wrapper:hover {
     transform: translateY(-8px);
+}
+
+/* Glowing Pulse for Buttons */
+html.light .btn-primary { animation: pulseBtnLight 2s infinite; }
+@keyframes pulseBtnLight {
+    0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(59, 130, 246, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }
+}
+
+html:not(.light) .btn-primary { animation: pulseBtnDark 2s infinite; }
+@keyframes pulseBtnDark {
+    0% { box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(0, 229, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }
 }
