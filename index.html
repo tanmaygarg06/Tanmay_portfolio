@@ -38,7 +38,6 @@
 
 </ul>
 <div style="display:flex;align-items:center;gap:8px;">
-<button id="theme-toggle" aria-label="Toggle theme"><svg id="theme-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
 <button class="hamburger" aria-label="Menu" onclick="document.getElementById('mobile-menu').classList.add('open')"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
 </div>
 </nav>
@@ -47,6 +46,12 @@
 
 <main>
 <section id="hero">
+<div class="hero-bg-dots">
+<div class="hero-dot dot-1"></div>
+<div class="hero-dot dot-2"></div>
+<div class="hero-dot dot-3"></div>
+<div class="hero-dot dot-4"></div>
+</div>
 <div class="container">
 <div class="hero-grid">
 <div class="hero-left">
@@ -221,7 +226,7 @@
 </div>
 </div>
 <div class="skill-card reveal" data-delay="0.3s">
-<div class="skill-card-header"><svg viewBox="0 0 24 24" style="stroke:#34D399"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg><h3>Tools</h3></div>
+<div class="skill-card-header"><svg viewBox="0 0 24 24" style="stroke:#34D399"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg><h3>Tools & Concepts</h3></div>
 <div class="divider"></div>
 <div class="badges">
 <div class="badge" style="background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.18)"><span class="dot" style="background:#34D399"></span>Git<span class="tooltip">Version control</span></div>
@@ -229,7 +234,7 @@
 <div class="badge" style="background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.18)"><span class="dot" style="background:#34D399"></span>VS Code<span class="tooltip">Primary editor</span></div>
 <div class="badge" style="background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.18)"><span class="dot" style="background:#34D399"></span>Power BI<span class="tooltip">Data viz</span></div>
 <div class="badge" style="background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.18)"><span class="dot" style="background:#34D399"></span>DSA<span class="tooltip">Problem solving</span></div>
-<div class="badge" style="background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.18)"><span class="dot" style="background:#34D399"></span>OOP<span class="tooltip">Design patterns</span></div>
+<div class="badge" style="background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.18)"><span class="dot" style="background:#34D399"></span>OOPS<span class="tooltip">Design patterns</span></div>
 <div class="badge" style="background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.18)"><span class="dot" style="background:#34D399"></span>Serverless<span class="tooltip">Cloud architecture</span></div>
 </div>
 </div>
