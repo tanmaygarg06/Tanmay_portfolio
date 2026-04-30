@@ -74,12 +74,11 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0
 /* HERO */
 #hero{min-height:100vh;display:flex;align-items:center;padding-top:100px;padding-bottom:60px;position:relative;overflow:hidden;}
 .hero-bg-dots{position:absolute;inset:0;pointer-events:none;z-index:0;}
-.hero-dot{position:absolute;width:6px;height:6px;background:var(--accent-cyan);border-radius:50%;box-shadow:0 0 15px var(--accent-cyan);opacity:0.4;animation:pulseDot 4s infinite alternate;}
-.dot-1{top:20%;left:15%;animation-delay:0s;}
-.dot-2{top:60%;left:80%;width:4px;height:4px;animation-delay:1s;background:var(--accent-amber);box-shadow:0 0 10px var(--accent-amber);}
-.dot-3{top:80%;left:25%;animation-delay:2s;}
-.dot-4{top:30%;left:75%;width:8px;height:8px;animation-delay:3s;background:var(--accent-purple);box-shadow:0 0 20px var(--accent-purple);}
-@keyframes pulseDot{from{transform:scale(1);opacity:0.3}to{transform:scale(1.5);opacity:0.6}}
+.hero-dot{position:absolute;width:2px;height:2px;background:var(--dot-color);border-radius:50%;opacity:0.3;}
+.dot-1{top:25%;left:20%;}
+.dot-2{top:70%;left:75%;}
+.dot-3{top:85%;left:10%;}
+.dot-4{top:15%;left:85%;}
 .hero-grid{display:flex;gap:48px;align-items:center;width:100%;}
 .hero-left{flex:1;min-width:0;}
 .hero-right{flex-shrink:0;}
