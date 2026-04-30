@@ -266,7 +266,8 @@ if (canvas) {
 
     function drawStars() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = document.documentElement.classList.contains('light') ? 'rgba(0,0,0,0)' : 'rgba(255, 255, 255, 0.8)';
+        // Ensure stars are visible in both light and dark modes
+        ctx.fillStyle = document.documentElement.classList.contains('light') ? 'rgba(15, 23, 42, 0.2)' : 'rgba(255, 255, 255, 0.8)';
         
         ctx.beginPath();
         for (let i = 0; i < stars.length; i++) {
