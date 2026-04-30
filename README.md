@@ -3,7 +3,7 @@
 Welcome to the repository for my personal developer portfolio! This portfolio represents my professional journey, skills, and the cloud-native applications I've engineered.
 
 ## 🚀 Live Demo
-[https://tanmaygarg06.github.io/Tanmay-Portfolio/](https://tanmaygarg06.github.io/Tanmay-Portfolio/)
+[https://tanmaygarg06.github.io/Tanmay_portfolio/](https://tanmaygarg06.github.io/Tanmay_portfolio/)
 
 ## 💡 About This Project
 This portfolio is built with a focus on **premium aesthetics, high-performance animations, and zero-dependency HTML/CSS**. It utilizes sleek glassmorphism, completely custom CSS cubic-bezier hover animations, and a dynamic HTML5 Canvas background to immediately catch the eye.
