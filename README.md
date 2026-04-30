@@ -27,7 +27,7 @@ This portfolio is built with a focus on **premium aesthetics, high-performance a
  ┣ 📜 script.js            # Interactivity, canvas logic, and form handling
  ┣ 📜 vibe_check.png       # Techy dashboard asset for project 1
  ┣ 📜 stock_analyzer.png   # Advanced chart asset for project 2
- ┗ 📜 Tanmay_Garg_Resume.pdf # Downloadable local resume
+ ┗ 📜 Tanmay Garg Resume.pdf # Downloadable local resume
 ```
 
 ## ⚙️ Running Locally
