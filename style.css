@@ -72,7 +72,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0
 .close-menu{position:absolute;top:20px;right:20px;background:none;border:none;cursor:pointer;}
 .close-menu svg{width:28px;height:28px;stroke:var(--text-primary);stroke-width:2;}
 /* HERO */
-#hero{min-height:100vh;display:flex;align-items:center;padding-top:100px;padding-bottom:60px;position:relative;overflow:hidden;}
+#hero{min-height:100vh;display:flex;align-items:center;padding-top:40px;padding-bottom:60px;position:relative;overflow:hidden;}
 .hero-bg-dots{position:absolute;inset:0;pointer-events:none;z-index:0;}
 .hero-dot{position:absolute;width:2px;height:2px;background:var(--dot-color);border-radius:50%;opacity:0.3;}
 .dot-1{top:25%;left:20%;}
@@ -320,7 +320,7 @@ section{padding:48px 0;}
 .contact-form-wrap{padding:20px;}
 .social-cards{grid-template-columns:1fr;}
 .hero-name{font-size:clamp(40px,12vw,88px);}
-#hero{padding-top:80px;padding-bottom:40px;}
+#hero{padding-top:20px;padding-bottom:40px;}
 }
 
 /* NEW STYLES */
